@@ -16,4 +16,27 @@ class equation{
         b = 0;
         c = 0;
     }
+    
+    double zeros(unsigned int zero, delta_exception ex){
+        double delta = std::pow(b,2)-(4*a*c);
+        double x1;
+        double x2;
+        
+        if(delta>0){
+            x1 =  ( (-b) +( pow(delta,0.5)) )  / (2*a);
+            x2 =  ( (-b) -( pow(delta,0.5)) )  / (2*a);
+            
+            if(zero==0){
+                return (x1<x2)? x1:x2;
+            }
+            
+            else{
+                return (x1>x2)? x1:x2;
+            }
+            
+        }
+        else if(delta==0){
+            return x1 = (-b)/(2*a);
+        }
+    }
 };
