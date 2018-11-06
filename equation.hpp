@@ -1,6 +1,14 @@
 #include <iostream>
 #include <cmath>
 
+class delta_exception: public std::exception
+{
+    virtual const char* what() const throw()
+    {
+        return "Delta equals less than zero";
+    }
+};
+
 class equation{
     public:
         int a;
@@ -37,6 +45,9 @@ class equation{
         }
         else if(delta==0){
             return x1 = (-b)/(2*a);
+        }
+        else{
+            throw ex;
         }
     }
 };
